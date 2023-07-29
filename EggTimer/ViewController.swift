@@ -10,6 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
-
-
+    
+    
+    @IBAction func hardnessPressed(_ sender: UIButton) {
+        print(sender.currentTitle)
+    }
+    
 }
