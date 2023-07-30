@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     @IBAction func hardnessPressed(_ sender: UIButton) {
         let hardness = sender.currentTitle!
-        print("You're egg is \(hardness) and it takes \(eggTimes[hardness]!) to boil.")
+        print("You're egg is \(hardness) and it takes \(eggTimes[hardness]!) minutes to boil.")
     }
     
 }
