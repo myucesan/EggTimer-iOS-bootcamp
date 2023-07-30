@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -102,7 +103,7 @@
                                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
                                                         <state key="normal" title="Hard"/>
                                                         <connections>
-                                                            <action selector="hardnessPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Da5-9A-bzC"/>
+                                                            <action selector="hardnessPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hNU-S7-6ni"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -122,11 +123,17 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nJN-th-c5K" userLabel="Timer View">
                                         <rect key="frame" x="0.0" y="532" width="361" height="227"/>
                                         <subviews>
-                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="KLZ-P9-osC">
-                                                <rect key="frame" x="105" y="111" width="150" height="4"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="X8V-SZ-Nqa">
+                                                <rect key="frame" x="0.0" y="112.66666666666663" width="361" height="2.6666666666666714"/>
+                                                <color key="progressTintColor" systemColor="systemCyanColor"/>
+                                                <color key="trackTintColor" systemColor="labelColor"/>
                                             </progressView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="X8V-SZ-Nqa" firstAttribute="centerY" secondItem="nJN-th-c5K" secondAttribute="centerY" id="1tH-NH-o4f"/>
+                                            <constraint firstItem="X8V-SZ-Nqa" firstAttribute="leading" secondItem="nJN-th-c5K" secondAttribute="leading" id="Zyp-ZU-RNF"/>
+                                            <constraint firstAttribute="trailing" secondItem="X8V-SZ-Nqa" secondAttribute="trailing" id="q69-18-dHN"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -141,8 +148,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mainMessage" destination="XLm-5r-pSP" id="NL3-3k-Q94"/>
-                        <outlet property="progressBar" destination="nJN-th-c5K" id="dhY-YN-aKb"/>
+                        <outlet property="progressBar" destination="X8V-SZ-Nqa" id="H51-Lj-3h7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -154,5 +160,11 @@
         <image name="hard_egg" width="287.66665649414062" height="366.33334350585938"/>
         <image name="medium_egg" width="288" height="363.33334350585938"/>
         <image name="soft_egg" width="287" height="365.33334350585938"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

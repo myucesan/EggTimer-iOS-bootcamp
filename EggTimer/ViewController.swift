@@ -11,14 +11,14 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var mainMessage: UILabel!
-    @IBOutlet weak var progressBar: UIView!
-    
+    @IBOutlet weak var progressBar: UIProgressView!
     var eggTimes : [String : Int] = ["Soft" : 1, "Medium" : 7, "Hard" : 12]
     var seconds : Int = 0
     var timer : Timer? = nil // alternatively var timer = Timer() so we don't have to use optionals
     var hardness : String = ""
     
     @IBAction func hardnessPressed(_ sender: UIButton) {
+        progressBar.setProgress(1, animated: true) // progressBar.progress = value should also work, had made a wrong @IBOutlet so it didn't work before and found setProgress because of it. We have animation now at least
         timer?.invalidate()
         hardness = sender.currentTitle!
         seconds = eggTimes[hardness]! * 60
@@ -29,12 +29,11 @@ class ViewController: UIViewController {
     @objc func fireTimer() {
         print(seconds)
         seconds -= 1
-
+        
         if seconds == 0 {
             print("timer ends")
             mainMessage.text = "\(hardness) egg has finished boiling"
             timer?.invalidate()
         }
     }
-    
 }
