@@ -10,10 +10,27 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    let softTime = 5
+    let mediumTime = 7
+    let hardTime = 12
     
     
     @IBAction func hardnessPressed(_ sender: UIButton) {
-        print(sender.currentTitle)
+        let hardness = sender.currentTitle!
+        
+        switch hardness {
+        case "Soft":
+            print("You're egg is soft and soft time is \(softTime)")
+
+        case "Medium":
+            print("You're egg is medium and medium time is \(mediumTime)")
+
+        case "Hard":
+            print("You're egg is hard and hard time is \(hardTime)")
+
+        default:
+            print("Have you done something new?")
+        }
     }
     
 }
