@@ -10,15 +10,27 @@ import UIKit
 
 class ViewController: UIViewController {
     
-//    let softTime = 5
-//    let mediumTime = 7
-//    let hardTime = 12
-    
     var eggTimes : [String : Int] = ["Soft" : 5, "Medium" : 7, "Hard" : 12]
+    var seconds : Int = 0
+    var timer : Timer? = nil
     
     @IBAction func hardnessPressed(_ sender: UIButton) {
         let hardness = sender.currentTitle!
+        seconds = eggTimes[hardness]! * 60
         print("You're egg is \(hardness) and it takes \(eggTimes[hardness]!) minutes to boil.")
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+        
+
+    }
+    
+    @objc func fireTimer() {
+        print(seconds)
+        seconds -= 1
+
+        if seconds == 0 {
+            print("timer ends")
+            timer?.invalidate()
+        }
     }
     
 }
