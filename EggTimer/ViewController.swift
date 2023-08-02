@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -16,6 +17,7 @@ class ViewController: UIViewController {
     var seconds : Int = 0
     var timer : Timer? = nil // alternatively var timer = Timer() so we don't have to use optionals
     var hardness : String = ""
+    var audioPlayer: AVAudioPlayer?
     
     @IBAction func hardnessPressed(_ sender: UIButton) {
 
@@ -36,7 +38,27 @@ class ViewController: UIViewController {
         if seconds == eggTimes[hardness]! * 60 {
             print("timer ends")
             mainMessage.text = "\(hardness) egg has finished boiling"
+            playAlarm()
             timer?.invalidate()
         }
     }
+    
+    func playAlarm() {
+        do {
+            // Check if the sound file is in the bundle
+            if let fileURL = Bundle.main.path(forResource: "alarm_sound", ofType: "mp3") {
+                // Translating the file URL to 'Data' which the AVAudioPlayer understands
+                let soundData = NSData(contentsOfFile: fileURL)
+                // Creating the player
+                audioPlayer = try AVAudioPlayer(data: soundData! as Data)
+                audioPlayer?.play()
+            } else {
+                print("No file with specified name exists")
+            }
+        } catch let error {
+            print("Can't play the audio file failed with an error \(error.localizedDescription)")
+        }
+
+    }
 }
+
