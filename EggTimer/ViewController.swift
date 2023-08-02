@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var mainMessage: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
-    var eggTimes : [String : Int] = ["Soft" : 1, "Medium" : 1, "Hard" : 1]
+    var eggTimes : [String : Int] = ["Soft" : 3, "Medium" : 5, "Hard" : 7]
     var seconds : Int = 0
     var timer : Timer? = nil // alternatively var timer = Timer() so we don't have to use optionals
     var hardness : String = ""
